@@ -77,7 +77,7 @@ KNOWN_FORMATS = [
     '%d.%m.%Y %H:%M:%S',  # 08.03.2014 10:28:24
     'before %b-%Y',  # before aug-1996
     '%Y-%m-%d %H:%M:%S (%Z%z)',  # 2017-09-26 11:38:29 (GMT+00:00)
-    '%Y-%m-%d %H:%M:%S (%Z+0:00)', # 2018-06-21 17:17:59 (GMT+0:00)
+    '%Y-%m-%d %H:%M:%S (%Z+0:00)',  # 2018-06-21 17:17:59 (GMT+0:00)
 ]
 
 
@@ -199,7 +199,7 @@ class WhoisEntry(dict):
     @staticmethod
     def parse_indented_nameservers(text):
         pattern = re.compile(r'^\s+([\w.-]+)(?=\s*[\r\n]+|$)', re.MULTILINE)
-        name_servers_section_match = re.search(r'Name Servers:(?:\s*[\r\n]+)*(.*)', text, re.DOTALL|re.IGNORECASE)
+        name_servers_section_match = re.search(r'Name Servers:(?:\s*[\r\n]+)*(.*)', text, re.DOTALL | re.IGNORECASE)
 
         name_servers = list()
         if name_servers_section_match:
@@ -253,13 +253,13 @@ class WhoisEntry(dict):
         elif domain.endswith('.au'):
             return WhoisAU(domain, text)
         elif domain.endswith('.am'):
-            return WhoisAM(domain, text)            
+            return WhoisAM(domain, text)
         elif domain.endswith('.ru'):
             return WhoisRu(domain, text)
         elif domain.endswith('.tz'):
             return WhoisTz(domain, text)
         elif domain.endswith('.rs'):
-            return WhoisRs(domain, text)            
+            return WhoisRs(domain, text)
         elif domain.endswith('.us'):
             return WhoisUs(domain, text)
         elif domain.endswith('.uk'):
@@ -267,13 +267,13 @@ class WhoisEntry(dict):
         elif domain.endswith('.qa'):
             return WhoisQa(domain, text)
         elif domain.endswith('.so'):
-            return WhoisSo(domain, text)            
+            return WhoisSo(domain, text)
         elif domain.endswith('.fr'):
             return WhoisFr(domain, text)
         elif domain.endswith('.nl'):
             return WhoisNl(domain, text)
         elif domain.endswith('.mo'):
-            return WhoisMo(domain, text)            
+            return WhoisMo(domain, text)
         elif domain.endswith('.lt'):
             return WhoisLt(domain, text)
         elif domain.endswith('.fi'):
@@ -281,7 +281,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.hr'):
             return WhoisHr(domain, text)
         elif domain.endswith('.bn'):
-            return WhoisBn(domain, text)            
+            return WhoisBn(domain, text)
         elif domain.endswith('.hn'):
             return WhoisHn(domain, text)
         elif domain.endswith('.hu'):
@@ -295,7 +295,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.br'):
             return WhoisBr(domain, text)
         elif domain.endswith('.th'):
-            return WhoisTh(domain, text)            
+            return WhoisTh(domain, text)
         elif domain.endswith('.eu'):
             return WhoisEu(domain, text)
         elif domain.endswith('.ee'):
@@ -329,23 +329,23 @@ class WhoisEntry(dict):
         elif domain.endswith('.biz'):
             return WhoisBiz(domain, text)
         elif domain.endswith('.cc'):
-            return WhoisCc(domain, text)            
+            return WhoisCc(domain, text)
         elif domain.endswith('.mobi'):
             return WhoisMobi(domain, text)
         elif domain.endswith('.fj'):
-            return WhoisFj(domain, text)            
+            return WhoisFj(domain, text)
         elif domain.endswith('.ch'):
             return WhoisChLi(domain, text)
         elif domain.endswith('.sn'):
-            return WhoisSn(domain, text)            
+            return WhoisSn(domain, text)
         elif domain.endswith('.pf'):
-            return WhoisPf(domain, text)            
+            return WhoisPf(domain, text)
         elif domain.endswith('.li'):
             return WhoisChLi(domain, text)
         elif domain.endswith('.id'):
             return WhoisID(domain, text)
         elif domain.endswith('.as') or domain.endswith('.gg') or domain.endswith('.je'):
-            return WhoisAsGgJe(domain, text)            
+            return WhoisAsGgJe(domain, text)
         elif domain.endswith('.sk'):
             return WhoisSK(domain, text)
         elif domain.endswith('.se'):
@@ -363,7 +363,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.mx'):
             return WhoisMx(domain, text)
         elif domain.endswith('.mw'):
-            return WhoisMw(domain, text)            
+            return WhoisMw(domain, text)
         elif domain.endswith('.ai'):
             return WhoisAi(domain, text)
         elif domain.endswith('.il'):
@@ -387,7 +387,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.cn'):
             return WhoisCn(domain, text)
         elif domain.endswith('.tn'):
-            return WhoisTn(domain, text)            
+            return WhoisTn(domain, text)
         elif domain.endswith('.app'):
             return WhoisApp(domain, text)
         elif domain.endswith('.money'):
@@ -569,7 +569,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.ps'):
             return WhoisPs(domain, text)
         elif domain.endswith('.pk'):
-            return WhoisPk(domain, text)            
+            return WhoisPk(domain, text)
         elif domain.endswith('.fashion'):
             return WhoisFashion(domain, text)
         elif domain.endswith('.finance'):
@@ -599,7 +599,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.re'):
             return WhoisRe(domain, text)
         elif domain.endswith('.ug'):
-            return WhoisUg(domain, text)            
+            return WhoisUg(domain, text)
         else:
             logger.warning(f'No specific TLD parser for domain {domain}. Using generic parser.')
             return WhoisEntry(domain, text)
@@ -614,7 +614,7 @@ class WhoisUg(WhoisEntry):
         'registrant_organization': r'Registrant organization: *(.+)',
         'creation_date': r'Registered On: *(.+)',
         'expiration_date': r'Expires On: *(.+)',
-        'updated_date': r'Renewed On: *(.+)',        
+        'updated_date': r'Renewed On: *(.+)',
         'name_servers': r'Nameserver: *(.+)',  # list of name servers
     }
 
@@ -694,13 +694,14 @@ class WhoisSo(WhoisEntry):
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'emails': EMAIL_REGEX,
     }
-    
+
     def __init__(self, domain, text):
 
         if 'No entries found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
 
 class WhoisMk(WhoisEntry):
     """Whois parser for .mk domains"""
@@ -713,7 +714,7 @@ class WhoisMk(WhoisEntry):
         'emails': EMAIL_REGEX,
     }
     dayfirst = True
-    
+
     def __init__(self, domain, text):
 
         if 'No entries found' in text:
@@ -732,7 +733,7 @@ class WhoisFj(WhoisEntry):
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'emails': EMAIL_REGEX,
     }
-    
+
     def __init__(self, domain, text):
 
         if 'No Object Found' in text:
@@ -834,7 +835,7 @@ class WhoisQa(WhoisEntry):
         'domain_name': r'Domain Name: *(.+)',
         'status': r'Status: *(.+)',
         'registrar': r'Registrar Name: *(.+)',
-        'update_date': r'Last Modified: *(.+)',    
+        'update_date': r'Last Modified: *(.+)',
         'name_servers': r'Name Server: *(.+)',  # list of name servers
     }
 
@@ -852,8 +853,8 @@ class WhoisBn(WhoisEntry):
         'domain_name': r'Domain Name: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'update_date': r'Modified Date: *(.+)',
-        'create_date': r'Creation Date: *(.+)',   
-        'expiration_date': r'Expiration Date: *(.+)',           
+        'create_date': r'Creation Date: *(.+)',
+        'expiration_date': r'Expiration Date: *(.+)',
     }
 
     def __init__(self, domain, text):
@@ -893,7 +894,7 @@ class WhoisMw(WhoisEntry):
         'emails': EMAIL_REGEX,
     }
     dayfirst = True
-    
+
     def __init__(self, domain, text):
 
         if 'No entries found' in text:
@@ -920,6 +921,7 @@ class WhoisPf(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
 
 class WhoisHu(WhoisEntry):
     """Whois parser for .hu domains"""
@@ -948,7 +950,7 @@ class WhoisTz(WhoisEntry):
         'emails': EMAIL_REGEX,
     }
     dayfirst = True
-    
+
     def __init__(self, domain, text):
 
         if 'No entries found' in text:
@@ -1097,10 +1099,11 @@ class WhoisGov(WhoisEntry):
         'referral_url': r'refer: *(.+)',  # http url of whois_server: empty usually
         'updated_date': r'changed: *(.+)',
         'creation_date': r'created: *(.+)',
-        'name_servers': r'nserver: *(.+)', # list of name servers
+        'name_servers': r'nserver: *(.+)',  # list of name servers
         'status': r'status: *(.+)',  # list of statuses
         'emails': EMAIL_REGEX,  # list of email addresses
     }
+
     def __init__(self, domain, text):
         if 'No match for "' in text:
             raise PywhoisError(text)
@@ -1155,7 +1158,7 @@ class WhoisTh(WhoisEntry):
         'domain_name': r'Domain Name: *(.+)',
         'registrar': r'Registrar:(.+)',
         'name_servers': r'Name Server: *(.+)',
-        'creation_date': r'Created date: *(.+)', 
+        'creation_date': r'Created date: *(.+)',
         'expiration_date': r'Exp date: *(.+)',
         'updated_date': r'Updated Date: (.+)',
         'status': r'Status: *(.+)',
@@ -1593,7 +1596,7 @@ class WhoisJp(WhoisEntry):
         'creation_date': r'\[登録年月日\] *(.+)',
         'name_servers': r'p\. \[ネームサーバ\] *(.+)',  # list of name servers
         'updated_date': r'\[最終更新\] *(.+)|\[接続年月日\] *(.+)',
-        'expiration_date': r'\[有効期限\] *(.+)',         
+        'expiration_date': r'\[有効期限\] *(.+)',
         'status': r'\[状態\] *(.+)',  # list of statuses
         'emails': EMAIL_REGEX  # list of email addresses
     }
@@ -1603,6 +1606,7 @@ class WhoisJp(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
 
 class WhoisAM(WhoisEntry):
     """Whois parser for .am domains"""
@@ -1617,6 +1621,7 @@ class WhoisAM(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
 
 class WhoisAU(WhoisEntry):
     """Whois parser for .au domains"""
@@ -2980,7 +2985,7 @@ class WhoisLu(WhoisEntry):
     }
 
     dayfirst = True
-    
+
     def __init__(self, domain, text):
         if 'No such domain' in text:
             raise PywhoisError(text)
@@ -3445,6 +3450,7 @@ class WhoisTn(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
+
 class WhoisApp(WhoisEntry):
     """Whois parser for .app domains"""
     regex = {
@@ -3572,7 +3578,7 @@ class WhoisCr(WhoisEntry):
     }
 
     dayfirst = True
-    
+
     def __init__(self, domain, text):
         if text.strip() == 'El dominio no existe.':
             raise PywhoisError(text)
