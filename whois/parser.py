@@ -398,6 +398,8 @@ class WhoisEntry(dict):
             return WhoisAr(domain, text)
         elif domain.endswith('.by'):
             return WhoisBy(domain, text)
+        elif domain.endswith('.mq'):
+            return WhoisMq(domain, text)            
         elif domain.endswith('.cr'):
             return WhoisCr(domain, text)
         elif domain.endswith('.do'):
@@ -717,6 +719,21 @@ class WhoisMk(WhoisEntry):
     def __init__(self, domain, text):
 
         if 'No entries found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMq(WhoisEntry):
+    """Whois parser for .mq domains"""
+    regex = {
+        'domain_name': r'domain: *(.+)',
+        'updated_date': r'changed: *(.+)',
+    }
+    
+    def __init__(self, domain, text):
+
+        if 'NO OBJECT FOUND' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
