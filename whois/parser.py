@@ -78,6 +78,7 @@ KNOWN_FORMATS = [
     'before %b-%Y',  # before aug-1996
     '%Y-%m-%d %H:%M:%S (%Z%z)',  # 2017-09-26 11:38:29 (GMT+00:00)
     '%Y-%m-%d %H:%M:%S (%Z+0:00)', # 2018-06-21 17:17:59 (GMT+0:00)
+    'Before %Y', # Before 2001 
 ]
 
 
