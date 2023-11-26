@@ -323,6 +323,8 @@ class WhoisEntry(dict):
             return WhoisSu(domain, text)
         elif domain.endswith('.si'):
             return WhoisSi(domain, text)
+        elif domain.endswith('.int'):
+            return WhoisInt(domain, text)            
         elif domain.endswith('.kg'):
             return WhoisKg(domain, text)
         elif domain.endswith('.io'):
@@ -657,6 +659,22 @@ class WhoisSn(WhoisEntry):
         'expiration_date': r'Date d\'expiration: *(.+)',
         'updated_date': r'Dernière modification: *(.+)',
         'registrar': r'Registrar: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'NOT FOUND' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisInt(WhoisEntry):
+    """Whois parser for .int domains"""
+
+    regex = {
+        'domain_name': r'domain: *(.+)',
+        'creation_date': r'created: *(.+)',
+        'updated_date': r'changed: *(.+)',
     }
 
     def __init__(self, domain, text):
