@@ -259,6 +259,8 @@ class NICClient(object):
             return NICClient.BY_HOST
         elif tld == 'bn':
             return 'whois.bnnic.bn'
+        elif tld == 'bw':
+            return 'whois.nic.net.bw'
         elif tld == 'ca':
             return NICClient.CA_HOST
         elif tld == 'qa':
