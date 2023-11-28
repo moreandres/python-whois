@@ -1620,9 +1620,9 @@ class WhoisUk(WhoisEntry):
 class WhoisSchUk(WhoisEntry):
     """Whois parser for .sch.uk domains"""
     regex = {
-        'domain_name': r'Domain name:\s*(.+)',
-        'creation_date': r'Registered on:\s*(.+)',
-        'updated_date': r'Last updated:\s*(.+)',
+        'domain_name': r'Domain name:[\r\n\s]+(.+)',
+        'creation_date': r'Registered on: *(.+)',
+        'updated_date': r'Last updated: *(.+)',
 
         'name_servers': WhoisEntry.parse_indented_nameservers,
     }
