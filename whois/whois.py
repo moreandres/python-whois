@@ -251,6 +251,8 @@ class NICClient(object):
             return NICClient.ANICHOST
         elif tld == 'ai':
             return NICClient.AI_HOST
+        elif tld == 'sch.uk':
+            return 'whois.nic.uk'
         elif tld == 'app':
             return NICClient.APP_HOST
         elif tld == 'ar':
