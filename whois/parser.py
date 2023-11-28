@@ -479,6 +479,8 @@ class WhoisEntry(dict):
             return WhoisAsia(domain, text)
         elif domain.endswith('.top'):
             return WhoisTop(domain, text)
+        elif domain.endswith('.to'):
+            return WhoisTo(domain, text)            
         elif domain.endswith('.berlin'):
             return WhoisBerlin(domain, text)
         elif domain.endswith('.bike'):
@@ -4158,6 +4160,23 @@ class WhoisTop(WhoisCom):
 
     def __init__(self, domain, text):
         if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisTo(WhoisEntry):
+    """Whois parser for .to domains
+    """
+    regex = {
+        'domain_name': r'Domain: *(.+)',
+        'updated_date': r'Last edited on: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'expiration_date': r'Expires on: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'No match for' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
