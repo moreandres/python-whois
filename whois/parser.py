@@ -238,7 +238,7 @@ class WhoisEntry(dict):
         if domain.endswith('.com'):
             return WhoisCom(domain, text)
         elif domain.endswith('.net'):
-            return WhoisNet(domain, text)
+            return WhoisNet(domain, text)            
         elif domain.endswith('.org'):
             return WhoisOrg(domain, text)
         elif domain.endswith('.edu'):
@@ -291,6 +291,8 @@ class WhoisEntry(dict):
             return WhoisHk(domain, text)
         elif domain.endswith('.jp'):
             return WhoisJp(domain, text)
+        elif domain.endswith('.ax'):
+            return WhoisAx(domain, text)            
         elif domain.endswith('.pl'):
             return WhoisPl(domain, text)
         elif domain.endswith('.br'):
@@ -700,6 +702,25 @@ class WhoisCl(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'no entries found.' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisAx(WhoisEntry):
+    """Whois parser for .ax domains"""
+    regex = {
+        'domain_name': r'domain\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.: *(.+)',
+        'registrar': r'registrar\.\.\.\.\.\.\.\.\.\.\.\.: *(.+)',
+        'creation_date': r'created\.\.\.\.\.\.\.\.\.\.\.\.\.\.: *(.+)',
+        'updated_date': r'modified\.\.\.\.\.\.\.\.\.\.\.\.\.: *(.+)',
+        'expiration_date': r'expires\.\.\.\.\.\.\.\.\.\.\.\.\.\.: *(.+)',
+        'emails': EMAIL_REGEX,
+    }
+    
+    def __init__(self, domain, text):
+
+        if 'Domain not found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
