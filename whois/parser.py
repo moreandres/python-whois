@@ -325,6 +325,8 @@ class WhoisEntry(dict):
             return WhoisSu(domain, text)
         elif domain.endswith('.si'):
             return WhoisSi(domain, text)
+        elif domain.endswith('.mm'):
+            return WhoisMm(domain, text)            
         elif domain.endswith('.int'):
             return WhoisInt(domain, text)            
         elif domain.endswith('.kg'):
@@ -667,6 +669,24 @@ class WhoisSn(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'NOT FOUND' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMm(WhoisEntry):
+    """Whois parser for .mm domains"""
+
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'expiration_date': r'Registry Expiry Date: *(.+)',
+        'updated_date': r'Updated Date: *(.+)',
+        'registrar': r'Registrar: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'DOMAIN NOT FOUND' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
