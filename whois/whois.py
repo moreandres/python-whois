@@ -405,6 +405,8 @@ class NICClient(object):
             return NICClient.PIR_HOST
         elif tld == 'ng':
             return NICClient.NG_HOST
+        elif tld == 'mm':
+            return 'whois.registry.gov.mm'
         elif tld == 'om':
             return 'whois.registry.om'
         elif tld == 'укр' or tld == 'xn--j1amh':
