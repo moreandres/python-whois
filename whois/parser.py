@@ -1664,6 +1664,7 @@ class WhoisJp(WhoisEntry):
 class WhoisAM(WhoisEntry):
     """Whois parser for .am domains"""
     regex = {
+        'domain_name': r'Domain name: *(.+)',
         'creation_date': r'Registered: *(.+)',
         'updated_date': r'Last modified: *(.+)',
         'expiration_date': r'Expires: *(.+)',
