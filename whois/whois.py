@@ -323,6 +323,8 @@ class NICClient(object):
             return NICClient.MARKET_HOST
         elif tld == 'money':
             return NICClient.MONEY_HOST
+        elif tld == 'to':
+            return 'whois.tonic.to'
         elif tld == 'mx':
             return NICClient.MX_HOST
         elif tld == 'nl':
