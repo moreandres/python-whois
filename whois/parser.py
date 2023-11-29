@@ -351,6 +351,8 @@ class WhoisEntry(dict):
             return WhoisPf(domain, text)            
         elif domain.endswith('.li'):
             return WhoisChLi(domain, text)
+        elif domain.endswith('.wf'):
+            return WhoisWf(domain, text)            
         elif domain.endswith('.id'):
             return WhoisID(domain, text)
         elif domain.endswith('.as') or domain.endswith('.gg') or domain.endswith('.je'):
@@ -701,6 +703,24 @@ class WhoisInt(WhoisEntry):
         'domain_name': r'domain: *(.+)',
         'creation_date': r'created: *(.+)',
         'updated_date': r'changed: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'NOT FOUND' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisWf(WhoisEntry):
+    """Whois parser for .wf domains"""
+
+    regex = {
+        'domain_name': r'domain: *(.+)',
+        'creation_date': r'created: *(.+)',
+        'updated_date': r'last-update: *(.+)',
+        'expiration_date': r'Expiry Date: *(.+)',
+        'registrar': r'registrar: *(.+)',
     }
 
     def __init__(self, domain, text):
