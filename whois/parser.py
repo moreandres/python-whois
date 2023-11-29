@@ -449,6 +449,8 @@ class WhoisEntry(dict):
             return WhoisSG(domain, text)
         elif domain.endswith('.ml'):
             return WhoisML(domain, text)
+        elif domain.endswith('.sm'):
+            return WhoisSm(domain, text)            
         elif domain.endswith('.ooo'):
             return WhoisOoo(domain, text)
         elif domain.endswith('.group'):
@@ -4236,6 +4238,21 @@ class WhoisTo(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'No match for' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisSm(WhoisEntry):
+    """Whois parser for .sm domains
+    """
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'creation_date': r'Registration date: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'No entries found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
