@@ -285,14 +285,16 @@ class NICClient(object):
             return NICClient.EDU_HOST
         elif tld == 'games':
             return NICClient.GAMES_HOST
+        elif tld == 'sm':
+            return 'whois.nic.sm'
         elif tld == 'group':
-            return "whois.nic.group"            
+            return "whois.nic.group"
         elif tld == 'goog' or tld == 'google':
             return NICClient.GOOGLE_HOST
         elif tld == 'es':
             return NICClient.ES_HOST
         elif tld == 'nc':
-            return 'whois.nc'            
+            return 'whois.nc'
         elif tld == 'group':
             return NICClient.GROUP_HOST
         elif tld == 'hk':
