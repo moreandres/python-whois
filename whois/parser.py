@@ -327,7 +327,7 @@ class WhoisEntry(dict):
             return WhoisSu(domain, text)
         elif domain.endswith('.si'):
             return WhoisSi(domain, text)
-        elif domain.endswith('com.mm'):
+        elif domain.endswith('mm'):
             return WhoisMm(domain, text)            
         elif domain.endswith('.int'):
             return WhoisInt(domain, text)            
