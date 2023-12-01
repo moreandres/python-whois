@@ -238,7 +238,7 @@ class NICClient(object):
             return NICClient.NORIDHOST
         if domain.endswith("id"):
             return NICClient.PANDIHOST
-        if domain.endswith("hr"):
+        if domain.endswith(".hr"):
             return NICClient.HR_HOST
         if domain.endswith('.pp.ua'):
             return NICClient.PPUA_HOST
