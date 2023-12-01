@@ -299,6 +299,8 @@ class NICClient(object):
             return NICClient.GROUP_HOST
         elif tld == 'hk':
             return NICClient.HK_HOST
+        elif tld == 'ruhr':
+            return 'whois.nic.ruhr'
         elif tld == 'hn':
             return NICClient.HN_HOST
         elif tld == 'ist':
