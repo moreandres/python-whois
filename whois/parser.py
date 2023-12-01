@@ -259,6 +259,8 @@ class WhoisEntry(dict):
             return WhoisRu(domain, text)
         elif domain.endswith('.tz'):
             return WhoisTz(domain, text)
+        elif domain.endswith('.ruhr'):
+            return WhoisRuHr(domain, text)            
         elif domain.endswith('.rs'):
             return WhoisRs(domain, text)            
         elif domain.endswith('.us'):
@@ -689,6 +691,24 @@ class WhoisMm(WhoisEntry):
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
         'registrar': r'Registrar: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'DOMAIN NOT FOUND' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisRuHr(WhoisEntry):
+    """Whois parser for .ruhr domains"""
+
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'updated_date': r'Updated Date: *(.+)',
+        'registrar': r'Registrar: *(.+)',
+        'iana_id': r'Registrar IANA ID: *(.+)',
     }
 
     def __init__(self, domain, text):
