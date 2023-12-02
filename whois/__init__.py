@@ -86,6 +86,9 @@ def extract_domain(url):
         # this is an IP address
         return socket.gethostbyaddr(url)[0]
 
+    if url.endswith('.sch.uk'):
+        return url
+    
     # load known TLD suffixes
     global suffixes
     if not suffixes:
