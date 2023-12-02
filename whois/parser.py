@@ -1662,15 +1662,13 @@ class WhoisUk(WhoisEntry):
 class WhoisSchUk(WhoisEntry):
     """Whois parser for .sch.uk domains"""
     regex = {
-        'domain_name': r'Domain name:[\r\n\s]+(.+)',
-        'creation_date': r'Registered on: *(.+)',
-        'updated_date': r'Last updated: *(.+)',
-
-        'name_servers': WhoisEntry.parse_indented_nameservers,
+        'domain_name': r'\s+Domain name:\n\s+(.+)',
+        'creation_date': r'\s+Registered on:\s+(.+)',
+        'updated_date': r'\s+Last updated:\s+(.+)',
     }
 
     def __init__(self, domain, text):
-        if 'No match for ' or 'This domain cannot be registered ' in text:
+        if 'No match for ' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
