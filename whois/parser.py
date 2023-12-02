@@ -1662,7 +1662,7 @@ class WhoisUk(WhoisEntry):
 class WhoisSchUk(WhoisEntry):
     """Whois parser for .sch.uk domains"""
     regex = {
-        'domain_name': r'\s+Domain name:\n\s+(.+)',
+        'domain_name': r'\s+Domain name:[\n\r]+\s+(.+)',
         'creation_date': r'\s+Registered on:\s+(.+)',
         'updated_date': r'\s+Last updated:\s+(.+)',
     }
