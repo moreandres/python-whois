@@ -411,7 +411,7 @@ class NICClient(object):
             return NICClient.PIR_HOST
         elif tld == 'ng':
             return NICClient.NG_HOST
-        elif tld == 'com.mm':
+        elif tld == 'mm':
             return 'whois.registry.gov.mm'
         elif tld == 'om':
             return 'whois.registry.om'
