@@ -265,6 +265,8 @@ class WhoisEntry(dict):
             return WhoisRs(domain, text)            
         elif domain.endswith('.us'):
             return WhoisUs(domain, text)
+        elif domain.endswith('.lv'):
+            return WhoisLv(domain, text)            
         elif domain.endswith('.sch.uk'):
             return WhoisSchUk(domain, text)            
         elif domain.endswith('.uk'):
@@ -787,6 +789,20 @@ class WhoisAx(WhoisEntry):
     def __init__(self, domain, text):
 
         if 'Domain not found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisLv(WhoisEntry):
+    """Whois parser for .lv domains"""
+    regex = {
+        'domain_name': r'Domain: +(.+)',
+    }
+    
+    def __init__(self, domain, text):
+
+        if 'Status: free' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
