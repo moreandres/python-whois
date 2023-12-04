@@ -1912,7 +1912,7 @@ class WhoisKr(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if text.endswith(' no match'):
+        if 'The requested domain was not found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
