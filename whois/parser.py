@@ -1705,7 +1705,7 @@ class WhoisFr(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'No entries found' or 'NOT FOUND' in text:
+        if 'No entries found' in text or 'NOT FOUND' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
@@ -1875,7 +1875,7 @@ class WhoisBr(WhoisEntry):
 
     def __init__(self, domain, text):
 
-        if 'Not found:' or 'No match for' in text:
+        if 'Not found:' in text or 'No match for' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
