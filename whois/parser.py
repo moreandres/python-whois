@@ -453,6 +453,8 @@ class WhoisEntry(dict):
             return WhoisSG(domain, text)
         elif domain.endswith('.ml'):
             return WhoisML(domain, text)
+        elif domain.endswith('.bo'):
+            return WhoisBo(domain, text)           
         elif domain.endswith('.sm'):
             return WhoisSm(domain, text)            
         elif domain.endswith('.ooo'):
@@ -875,6 +877,23 @@ class WhoisFj(WhoisEntry):
     def __init__(self, domain, text):
 
         if 'No Object Found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisBo(WhoisEntry):
+    """Whois parser for .bo domains"""
+    regex = {
+        'domain_name': r'NOMBRE DE DOMINIO: *(.+)',
+        'creation_date': r'Fecha de activación: *(.+)',
+        'expiration_date': r'Fecha de corte: *(.+)',
+        'emails': EMAIL_REGEX,
+    }
+    
+    def __init__(self, domain, text):
+
+        if 'DOMINIO NO REGISTRADO' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
