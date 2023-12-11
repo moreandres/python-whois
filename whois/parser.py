@@ -3205,6 +3205,7 @@ class WhoisOnline(WhoisEntry):
         'updated_date': r'Updated Date: *(.+)',
         'dnssec': r'DNSSEC: *([\S]+)',
         'emails': EMAIL_REGEX,
+        'iana_id': r'Registrar IANA ID: *(.+)',
     }
 
     def __init__(self, domain, text):
