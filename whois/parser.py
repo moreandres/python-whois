@@ -1518,6 +1518,7 @@ class WhoisUs(WhoisEntry):
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
+        'iana_id': r'Registrar IANA ID: *(.+)',
     }
 
     def __init__(self, domain, text):
