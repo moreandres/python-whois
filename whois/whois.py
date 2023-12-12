@@ -303,6 +303,8 @@ class NICClient(object):
             return NICClient.HK_HOST
         elif tld == 'ruhr':
             return 'whois.nic.ruhr'
+        elif tld == 'ml':
+            return 'whois.nic.ml'            
         elif tld == 'hn':
             return NICClient.HN_HOST
         elif tld == 'ist':
