@@ -332,7 +332,9 @@ class WhoisEntry(dict):
         elif domain.endswith('.si'):
             return WhoisSi(domain, text)
         elif domain.endswith('mm'):
-            return WhoisMm(domain, text)            
+            return WhoisMm(domain, text)
+        elif domain.endswith('ml'):
+            return WhoisMl(domain, text)            
         elif domain.endswith('.int'):
             return WhoisInt(domain, text)            
         elif domain.endswith('.kg'):
@@ -1055,6 +1057,25 @@ class WhoisMw(WhoisEntry):
     def __init__(self, domain, text):
 
         if 'No entries found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMl(WhoisEntry):
+    """Whois parser for .ml domains"""
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'registrar': r'Registrar: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'update_date': r'Updated Date: *(.+)',
+        'expiration_date': r'Registry Expiry Date: *(.+)',
+        'emails': EMAIL_REGEX,
+    }
+
+    def __init__(self, domain, text):
+
+        if 'No Object Found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
