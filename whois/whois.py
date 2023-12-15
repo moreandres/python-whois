@@ -341,6 +341,8 @@ class NICClient(object):
             return NICClient.MX_HOST
         elif tld == 'nl':
             return NICClient.NL_HOST
+        elif tld == 'vu':
+            return 'whois.dnrs.vu'
         elif tld == 'online':
             return NICClient.ONLINE_HOST
         elif tld == 'ooo':
