@@ -347,14 +347,16 @@ class NICClient(object):
             return NICClient.ONLINE_HOST
         elif tld == 'ooo':
             return NICClient.OOO_HOST
+        elif tld == 'gi':
+            return 'whois2.afilias-grs.net'
         elif tld == 'page':
             return NICClient.PAGE_HOST
         elif tld == 'pe':
             return NICClient.PE_HOST
         elif tld == 'ky':
-            return 'whois.kyregistry.ky'
+            return 'whois.kyrestry.ky'
         elif tld == 'pf':
-            return 'whois.registry.pf'
+            return 'whois.restry.pf'
         elif tld == 'website':
             return NICClient.WEBSITE_HOST
         elif tld == 'za':
