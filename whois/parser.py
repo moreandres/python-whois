@@ -677,7 +677,7 @@ class WhoisTm(WhoisEntry):
 
     regex = {
         'domain_name': r'Domain : *(.+)',
-        'expiration_date': r'Expiry: *(.+)',
+        'expiration_date': r'Expiry : *(.+)',
     }
 
     def __init__(self, domain, text):
