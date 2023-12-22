@@ -348,7 +348,9 @@ class WhoisEntry(dict):
         elif domain.endswith('.mobi'):
             return WhoisMobi(domain, text)
         elif domain.endswith('.fj'):
-            return WhoisFj(domain, text)            
+            return WhoisFj(domain, text)
+        elif domain.endswith('.tm'):
+            return WhoisTm(domain, text)            
         elif domain.endswith('.ch'):
             return WhoisChLi(domain, text)
         elif domain.endswith('.sn'):
@@ -665,6 +667,21 @@ class WhoisCc(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'No match for' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisTm(WhoisEntry):
+    """Whois parser for .tm domains"""
+
+    regex = {
+        'domain_name': r'Domain : *(.+)',
+        'expiration_date': r'Expiry: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'is available for purchase' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
