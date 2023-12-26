@@ -309,6 +309,8 @@ class WhoisEntry(dict):
             return WhoisEu(domain, text)
         elif domain.endswith('.ee'):
             return WhoisEe(domain, text)
+        elif domain.endswith('.yt'):
+            return WhoisYt(domain, text)            
         elif domain.endswith('.kr'):
             return WhoisKr(domain, text)
         elif domain.endswith('.pt'):
@@ -667,6 +669,26 @@ class WhoisCc(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'No match for' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisYt(WhoisEntry):
+    """Whois parser for .yt domains"""
+
+    regex = {
+        'domain_name': r'domain: *(.+)',
+        'creation_date': r'created: *(.+)',
+        'expiration_date': r'Expiry Date: *(.+)',
+        'updated_date': r'last-update: *(.+)',
+        'registrar': r'registrar: *(.+)',
+        'iana_id': r'Registrar IANA ID: *(.+)',
+        'name_servers': r'Nameserver: *(.+)',  # list of name servers
+    }
+
+    def __init__(self, domain, text):
+        if 'NOT FOUND' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
