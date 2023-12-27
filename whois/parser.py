@@ -2129,6 +2129,7 @@ class WhoisInfo(WhoisEntry):
         'state': r'Registrant State/Province: *(.+)',
         'registrant_postal_code': r'Registrant Postal Code: *(.+)',
         'country': r'Registrant Country: *(.+)',
+        'iana_id': r'Registrar IANA ID: *(.+)',
     }
 
     def __init__(self, domain, text):
