@@ -1895,7 +1895,7 @@ class WhoisEu(WhoisEntry):
                       r'^\n\r]+\s*Fax: *[^\n\r]+\s*Email: *([^\n\r]+)',
         'registrar': r'Registrar:\n *Name: *([^\n\r]+)',
         'registrar_url': r'\n *Website: *([^\n\r]+)',
-        'name_servers': r'Name servers:\n *([\n\S\s]+)',  # list of name servers
+        'name_servers': r'^\s+([a-z0-9]+\.\S+)$',
         'emails': EMAIL_REGEX  # list of email addresses
     }
 
