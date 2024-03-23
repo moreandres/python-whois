@@ -2088,7 +2088,8 @@ class WhoisAt(WhoisEntry):
         'phone': r'phone: *(.+)',
         'fax': r'fax-no: *(.+)',
         'updated_date': r'changed: *(.+)',
-        'email': EMAIL_REGEX,
+        'email': EMAIL_REGEX,     
+        'name_servers': r'nserver: *(\S+)',
     }
 
     def __init__(self, domain, text):
