@@ -3238,7 +3238,7 @@ class WhoisCz(WhoisEntry):
         'creation_date': r'registered: *(.+)',
         'updated_date': r'changed: *(.+)',
         'expiration_date': r'expire: *(.+)',
-        'name_servers': r'nserver: *(.+)',
+        'name_servers': r'nserver: *(\S+)',
         'emails': EMAIL_REGEX,
     }
 
