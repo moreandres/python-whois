@@ -1076,9 +1076,10 @@ class WhoisRe(WhoisEntry):
         'domain_name': r'domain: *(.+)',
         'registrar': r'registrar: *(.+)',
         'creation_date': r'created: *(.+)',
-        'update_date': r'Expiry Date: *(.+)',
-        'expiration_date': r'last-update: *(.+)',
+        'update_date': r'last-update: *(.+)',
+        'expiration_date': r'Expiry Date: *(.+)',
         'emails': EMAIL_REGEX,
+        'name_servers': r'nserver:\s+(\S+)',
     }
 
     def __init__(self, domain, text):
