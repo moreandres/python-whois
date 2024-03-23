@@ -177,6 +177,7 @@ class WhoisEntry(dict):
             elif regex and isfunction(regex):
                 for attribute, value in regex(self.text).items():
                     self[attribute] = value
+        self['name_servers'] = list(set(ns.lower() in self['name_servers']))
 
     def _preprocess(self, attr, value):
         value = value.strip()
