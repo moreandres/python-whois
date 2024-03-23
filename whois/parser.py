@@ -920,6 +920,7 @@ class WhoisFj(WhoisEntry):
         'updated_date': r'Updated Date: *(.+)',
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'emails': EMAIL_REGEX,
+        'name_servers': r'Name Server:\s+(\S+)',
     }
     
     def __init__(self, domain, text):
