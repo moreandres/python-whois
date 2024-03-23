@@ -668,7 +668,8 @@ class WhoisCc(WhoisEntry):
         'updated_date': r'Updated Date: *(.+)',
         'registrant_name': r'Registrant Name: *(.+)',
         'iana_id': r'Registrar IANA ID: *(.+)',
-        'name_servers': r'Nameserver: *(.+)',  # list of name servers
+        'name_servers': r'Name Server:\s+(\S+)',  # list of name servers
+        'registrar': r'Registrar:\s+(.+)',
     }
 
     def __init__(self, domain, text):
