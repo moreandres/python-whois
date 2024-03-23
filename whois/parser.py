@@ -2973,6 +2973,7 @@ class WhoisTr(WhoisEntry):
         'billing_address': r'(?<=[**] Billing Contact)[\s\S]*?Address\s+: (.*)',
         'billing_phone': r'(?<=[**] Billing Contact)[\s\S]*?Phone\s+: (.*)',
         'billing_fax': r'(?<=[**] Billing Contact)[\s\S]*?Fax\s+: (.*)',
+        'registrar': r'Organization Name\s+:\s+(.*)',
     }
 
     def __init__(self, domain, text):
