@@ -810,7 +810,7 @@ class WhoisCl(WhoisEntry):
         'domain_name': r'Domain name: *(.+)',
         'registrant_name': r'Registrant name: *(.+)',
         'registrant_organization': r'Registrant organisation: *(.+)',
-        'registrar': r'registrar name: *(.+)',
+        'registrar': r'Registrar name: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'creation_date': r'Creation date: *(.+)',
         'expiration_date': r'Expiration date: *(.+)',
