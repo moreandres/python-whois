@@ -1365,7 +1365,7 @@ class WhoisPk(WhoisEntry):
         'domain_name': r'Domain: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Expiry Date: *(.+)',
-        'name_servers': r'Name Server:\s+(\S+)',  # list of name servers
+        'name_servers': r'^\s+Name Server:\s+(\S+)\s*$',  # list of name servers
         'emails': EMAIL_REGEX,  # list of email addresses
     }
 
