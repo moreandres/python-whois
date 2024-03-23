@@ -1316,14 +1316,15 @@ class WhoisGov(WhoisEntry):
     """Whois parser for .gov domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registrar': r'organisation: *(.+)',
+        'registrar': r'Registrar: *(.+)',
         'whois_server': r'whois: *(.+)',  # empty usually
         'referral_url': r'refer: *(.+)',  # http url of whois_server: empty usually
-        'updated_date': r'changed: *(.+)',
-        'creation_date': r'created: *(.+)',
-        'name_servers': r'nserver: *(.+)', # list of name servers
+        'updated_date': r'Updated Date: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'name_servers': r'Name Server: *(.+)', # list of name servers
         'status': r'status: *(.+)',  # list of statuses
         'emails': EMAIL_REGEX,  # list of email addresses
+        'iana_id': r'Registrar IANA ID:\s+(\S+)',
     }
     def __init__(self, domain, text):
         if 'No match for "' in text:
