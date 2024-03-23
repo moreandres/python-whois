@@ -207,7 +207,9 @@ class WhoisEntry(dict):
             name_servers_section = name_servers_section_match.group(1)
             name_servers_found = pattern.findall(name_servers_section)
             for name_server in name_servers_found:
-                name_servers.append(name_server.strip())
+                ns = name_server.strip().lower()
+                if ns not in name_servers:
+                    name_servers.append(ns)
         return {"name_servers": name_servers}
 
     def __setitem__(self, name, value):
