@@ -4921,6 +4921,7 @@ class WhoisCo(WhoisCom):
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'iana_id': r'Registrar IANA ID: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
     }
 
     def __init__(self, domain, text):
