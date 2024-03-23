@@ -847,6 +847,7 @@ class WhoisLv(WhoisEntry):
     """Whois parser for .lv domains"""
     regex = {
         'domain_name': r'Domain: +(.+)',
+        'name_servers': r'Nserver:\s+(\S+)',
     }
     
     def __init__(self, domain, text):
