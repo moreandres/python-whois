@@ -1719,7 +1719,7 @@ class WhoisMe(WhoisEntry):
         'tech_fax': r'Tech FAX:(.+)',
         'tech_fax_ext': r'Tech FAX Ext\.:(.+)',
         'tech_email': r'Tech E-mail:(.+)',
-        'name_servers': r'Nameservers:(.+)',  # list of name servers
+        'name_servers': r'Name Server:\s+(\S+)',  # list of name servers
     }
 
     def __init__(self, domain, text):
