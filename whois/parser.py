@@ -3924,6 +3924,7 @@ class WhoisAe(WhoisEntry):
         'registrant_name': r'Registrant Contact Name: *(.+)',
         'tech_name': r'Tech Contact Name: *(.+)',
         'registrar': r'Registrar Name: *(.+)',
+        'name_servers': r'Name Server:\s+(\S+)',
     }
 
     def __init__(self, domain, text):
