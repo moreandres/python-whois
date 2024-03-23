@@ -1477,6 +1477,8 @@ class WhoisLt(WhoisEntry):
         'status': r'\nStatus:\s?(.+)',  # list of statuses
         'name': None,
         'emails': EMAIL_REGEX  # list of email addresses
+        'name_servers': r'Nameserver:\s+(\S+)',
+        'registrar': r'Registrar:\s+(.+)',
     }
 
     def __init__(self, domain, text):
