@@ -3307,6 +3307,7 @@ class WhoisHr(WhoisEntry):
         'name_servers': r'Name Server: *(.+)',
         'registrant_name': r'Registrant Name:\s(.+)',
         'registrant_address': r'Reigstrant Street:\s*(.+)',
+        'registrar': r'Registrar:\s+(\S+)',
         'emails': EMAIL_REGEX,
     }
 
