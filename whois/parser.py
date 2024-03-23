@@ -1173,6 +1173,7 @@ class WhoisTz(WhoisEntry):
         'updated_date': r'changed: *(.+)',
         'expiration_date': r'expire: *(.+)',
         'emails': EMAIL_REGEX,
+        'name_servers': r'nserver:\s+(\S+)',
     }
     dayfirst = True
     
