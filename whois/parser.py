@@ -2665,7 +2665,7 @@ class WhoisSe(WhoisEntry):
         'updated_date': r'modified\.*: *(.+)',
         'expiration_date': r'expires\.*: *(.+)',
         'transfer_date': r'transferred\.*: *(.+)',
-        'name_servers': r'nserver\.*: *(.+)',  # list of name servers
+        'name_servers': r'nserver\.*: *(\S+)',  # list of name servers
         'dnssec': r'dnssec\.*: *(.+)',
         'status': r'status\.*: *(.+)',  # list of statuses
         'registrar': r'registrar: *(.+)',
