@@ -2761,7 +2761,7 @@ class WhoisIt(WhoisEntry):
         'updated_date': r'(?<! )Last Update: *(.+)',
         'expiration_date': r'(?<! )Expire Date: *(.+)',
         'status': r'Status: *(.+)',  # list of statuses
-        'name_servers': r'Nameservers[\s]((?:.+\n)*)',  # servers in one string sep by \n
+        'name_servers': r'^\s+[a-z0-9]+\.[a-z0-9]+.*$',
 
         'registrant_organization': r'(?<=Registrant)[\s\S]*?Organization:(.*)',
         'registrant_address': r'(?<=Registrant)[\s\S]*?Address:(.*)',
