@@ -1476,7 +1476,7 @@ class WhoisLt(WhoisEntry):
         'creation_date': r'Registered:\s?(.+)',
         'status': r'\nStatus:\s?(.+)',  # list of statuses
         'name': None,
-        'emails': EMAIL_REGEX  # list of email addresses
+        'emails': EMAIL_REGEX,  # list of email addresses
         'name_servers': r'Nameserver:\s+(\S+)',
         'registrar': r'Registrar:\s+(.+)',
     }
