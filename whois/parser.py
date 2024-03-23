@@ -200,7 +200,7 @@ class WhoisEntry(dict):
 
     @staticmethod
     def parse_indented_nameservers(text):
-        pattern = re.compile(r'^\s+([\w.-]+)(?=\s*[\r\n]+|$)', re.MULTILINE)
+        pattern = re.compile(r'^\s+([\w.-]+)\s+.+$', re.MULTILINE)
         name_servers_section_match = re.search(r'Name Servers:(?:\s*[\r\n]+)*(.*)', text, re.DOTALL|re.IGNORECASE)
 
         name_servers = list()
