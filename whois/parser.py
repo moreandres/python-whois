@@ -2065,6 +2065,7 @@ class WhoisDe(WhoisEntry):
         'domain_name': r'Domain: *(.+)',
         'status': r'Status: *(.+)',
         'updated_date': r'Changed: *(.+)',
+        'registrar': r'Registrar Name: *(.+)',
         'name': r'name: *(.+)',
         'org': r'Organisation: *(.+)',
         'address': r'Address: *(.+)',
@@ -2075,7 +2076,6 @@ class WhoisDe(WhoisEntry):
         'fax': r'Fax: *(.+)',
         'name_servers': r'Nserver: *(.+)',  # list of name servers
         'emails': EMAIL_REGEX  # list of email addresses
-
     }
 
     def __init__(self, domain, text):
