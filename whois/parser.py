@@ -3348,7 +3348,7 @@ class WhoisHk(WhoisEntry):
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'[Registrant Contact Information\w\W]+Domain Name Commencement Date: (.+)',
         'expiration_date': r'[Registrant Contact Information\w\W]+Expiry Date: (.+)',
-        'name_servers': r'Name Servers Information:\s+((?:.+\n)*)',
+        'name_servers': r'^([a-zA-Z0-9]+\.\S+)$',
         'emails': EMAIL_REGEX,
     }
     dayfirst = True
