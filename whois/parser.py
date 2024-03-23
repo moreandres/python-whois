@@ -1403,7 +1403,7 @@ class WhoisRs(WhoisEntry):
         'expiration_date': r'Expiration date: *(.+)',
         'updated_date': r'Modification date: *(.+)',
         'emails': EMAIL_REGEX,  # list of email addresses
-        'name_servers': r'^DNS:\s+(\S+)\s+-$',
+        'name_servers': r'^DNS:\s+(\S+)\s+-\s*$',
     }
 
     dayfirst = True
