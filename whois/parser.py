@@ -1418,7 +1418,7 @@ class WhoisRu(WhoisEntry):
         'creation_date': r'created: *(.+)',
         'expiration_date': r'paid-till: *(.+)',
         'updated_date': None,
-        'name_servers': r'nserver: *(.+)\.?',  # list of name servers
+        'name_servers': r'nserver: *(.+)\.',  # list of name servers
         'status': r'state: *(.+)',  # list of statuses
         'emails': EMAIL_REGEX,  # list of email addresses
         'org': r'org: *(.+)'
