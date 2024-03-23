@@ -2901,7 +2901,7 @@ class WhoisTw(WhoisEntry):
         'expiration_date': r'Record expires on (.+) ',
 
         # servers in one string sep by \n
-        'name_servers': r'Domain servers in listed order:((?:\s.+)*)',
+        'name_servers': r'^\s+([a-z0-9]+\.[a-z0-9]+\S+)\s+$',
 
         'registrar': r'Registration Service Provider: *(.+)',
         'registrar_url': r'Registration Service URL: *(.+)',
