@@ -2114,7 +2114,7 @@ class WhoisBe(WhoisEntry):
         'name': r'Domain: *(.+)',
         'creation_date': r'Registered: *(.+)',
         'registrar': r'Registrar: *[\t\r\n]+Name: *(.+)',
-        'name_servers': r'^\s+([a-z0-9]+\.\S+)$',
+        'name_servers': r'^\s+([a-z0-9]+\.\S+)\s*$',
     }
 
     def __init__(self, domain, text):
