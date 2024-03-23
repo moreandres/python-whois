@@ -1321,6 +1321,7 @@ class WhoisGov(WhoisEntry):
         'referral_url': r'refer: *(.+)',  # http url of whois_server: empty usually
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
+        'expiration_date': r'Registry Expiry Date:\s+(\S+)',
         'name_servers': r'Name Server: *(.+)', # list of name servers
         'status': r'status: *(.+)',  # list of statuses
         'emails': EMAIL_REGEX,  # list of email addresses
