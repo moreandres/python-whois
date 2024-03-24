@@ -834,6 +834,8 @@ class WhoisAx(WhoisEntry):
         'expiration_date': r'expires\.\.\.\.\.\.\.\.\.\.\.\.\.\.: *(.+)',
         'emails': EMAIL_REGEX,
     }
+
+    dayfirst = True
     
     def __init__(self, domain, text):
 
