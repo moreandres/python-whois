@@ -1909,7 +1909,7 @@ class WhoisEu(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if text.strip() == 'Status: AVAILABLE':
+        if 'Status: AVAILABLE' in text.strip():
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
