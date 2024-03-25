@@ -3135,10 +3135,11 @@ class WhoisIn(WhoisEntry):
         'emails': EMAIL_REGEX,
         'country': r'Registrant Country: *(.+)',
         'dnssec': r'DNSSEC: *([\S]+)',
+        'iana_id': r'Registrar IANA ID: *(\d+)',
     }
 
     def __init__(self, domain, text):
-        if 'NOT FOUND' in text:
+        if 'No Data Found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
