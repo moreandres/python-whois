@@ -2795,7 +2795,7 @@ class WhoisIt(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'not found.' in text:
+        if 'Status:             AVAILABLE' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
