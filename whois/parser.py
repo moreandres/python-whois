@@ -1030,7 +1030,7 @@ class WhoisPe(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'No match for "' in text:
+        if 'Domain Status: No Object Found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
