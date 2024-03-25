@@ -1884,7 +1884,7 @@ class WhoisAU(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if text.strip() == 'No Data Found':
+        if text.strip() == 'NOT FOUND':
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
