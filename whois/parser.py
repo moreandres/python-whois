@@ -6332,6 +6332,7 @@ class WhoisXyz(WhoisEntry):
         'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
+        'iana_id': r'Registrar IANA ID: *(.+)',
     }
 
     def __init__(self, domain, text):
