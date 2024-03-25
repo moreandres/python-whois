@@ -2106,7 +2106,7 @@ class WhoisAt(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'Status: free' in text:
+        if 'nothing found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
