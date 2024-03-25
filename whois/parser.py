@@ -4009,7 +4009,7 @@ class WhoisIR(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'No match for "' in text:
+        if 'no entries found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
