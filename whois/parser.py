@@ -1334,7 +1334,7 @@ class WhoisGov(WhoisEntry):
         'iana_id': r'Registrar IANA ID:\s+(\S+)',
     }
     def __init__(self, domain, text):
-        if 'No match for "' in text:
+        if 'Domain not found.' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
