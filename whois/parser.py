@@ -1610,7 +1610,7 @@ class WhoisPl(WhoisEntry):
     """Whois parser for .pl domains"""
     regex = {
         'domain_name': r'DOMAIN NAME: *(.+)\n',
-        'name_servers': r'^nameservers:\s+([a-z0-9-]+.[a-z0-9-.]+)\.\s+\S+$|^\s+([a-z0-9-]+.[a-z0-9-.]+)\.\s+$',
+        'name_servers': r'^nameservers:\s+([a-z0-9-]+.[a-z0-9-.]+)\.\s+\S+$',
         'registrar': r'REGISTRAR:\s*(.+)',
         'registrar_url': r'URL: *(.+)',  # not available
         'status': r'Registration status:\n\s*(.+)',  # not available
