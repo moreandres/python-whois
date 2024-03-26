@@ -2595,9 +2595,7 @@ class WhoisKg(WhoisEntry):
         'registrant_address': r'Address: *(.+)',
         'registrant_phone_number': r'phone: *(.+)',
         'registrant_email': r'Email: *(.+)',
-        # # list of name servers
-        'name_servers': r'Name servers in the listed order: *([\d\w\.\s]+)',
-        # 'name_servers':                 r'([\w]+\.[\w]+\.[\w]{2,5}\s*\d{1,3}\.\d]{1,3}\.[\d]{1-3}\.[\d]{1-3})',
+        'name_servers': r'^([a-zA-Z0-9-]+.[a-zA-Z0-9-.]+)\s+$',
         'creation_date': r'Record created: *(.+)',
         'expiration_date': r'Record expires on: *(.+)',
         'updated_date': r'Record last updated on: *(.+)',
