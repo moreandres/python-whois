@@ -267,7 +267,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.ruhr'):
             return WhoisRuHr(domain, text)            
         elif domain.endswith('.rs'):
-            return WhoisRs(domain, text)            
+            return domain, text)            
         elif domain.endswith('.us'):
             return WhoisUs(domain, text)
         elif domain.endswith('.lv'):
@@ -1410,7 +1410,7 @@ class WhoisRs(WhoisEntry):
         'expiration_date': r'Expiration date: *(.+)',
         'updated_date': r'Modification date: *(.+)',
         'emails': EMAIL_REGEX,  # list of email addresses
-        'name_servers': r'^DNS:\s+(\S+)\s+-\s*$',
+        'name_servers': r'^DNS:\s(\S+)\s.*$',
     }
 
     dayfirst = True
