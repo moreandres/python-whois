@@ -1822,7 +1822,7 @@ class WhoisFi(WhoisEntry):
         'creation_date': r'created\.*: *([\S]+)',
         'updated_date': r'modified\.*: *([\S]+)',
         'expiration_date': r'expires\.*: *([\S]+)',
-        'name_servers': r'nserver\.*: *([\S]+) \[\S+\].*',  # list of name servers
+        'name_servers': r'^nserver\.+:\s(\S+)\s.*$',  # list of name servers
         'name_server_statuses': r'nserver\.*: *([\S]+ \[\S+\])',  # list of name servers and statuses
         'dnssec': r'dnssec\.*: *([\S]+)',
         'registrar': r'Registrar\s*registrar\.*: (.+)',
