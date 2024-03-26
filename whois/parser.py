@@ -2954,7 +2954,7 @@ class WhoisTr(WhoisEntry):
         'creation_date': r'Created on.*: *(.+)',
         'expiration_date': r'Expires on.*: *(.+)',
 
-        'name_servers': r'^([a-z0-9].[a-z0-9.]+)$',
+        'name_servers': r'^(\S+\.\S+)\s*$',
 
         'registrant_name': r'(?<=[**] Registrant:)[\s\S]((?:\s.+)*)',
 
