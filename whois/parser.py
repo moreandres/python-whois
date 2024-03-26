@@ -1352,7 +1352,7 @@ class WhoisRo(WhoisEntry):
 
         'creation_date': r'Registered On: *(.+)',
         'expiration_date': r'Expires On: *(.+)',
-        'name_servers': r'\s+Nameserver: *(.+)',  # list of name servers
+        'name_servers': r'^\s+Nameserver:\s+([a-z0-1-]+\.[a-z0-1-.]+)$',  # list of name servers
         'status': r'Status: *(.+)',  # list of statuses
         'dnssec': r'DNSSEC: *(.+)',
         'emails': EMAIL_REGEX  # list of email addresses
