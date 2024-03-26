@@ -690,7 +690,7 @@ class WhoisMz(WhoisEntry):
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
-        'name_servers': r'Name Server:\s+(\S+)',  # list of name servers
+        'name_servers': r'^Name Server:\s+(\S+)$',  # list of name servers
         'registrar': r'Registrar:\s+(.+)',    
     }
 
