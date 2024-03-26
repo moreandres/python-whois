@@ -2006,7 +2006,7 @@ class WhoisKr(WhoisEntry):
         'updated_date': r'Last updated Date\s*: *(.+)',
         'expiration_date': r'Expiration Date\s*: *(.+)',
         'registrar': r'Authorized Agency\s*: *(.+)',
-        'name_servers': r'Host Name\s*: *(.+)',  # list of name servers
+        'name_servers': r'^\s+Host\sName\s+:\s*(\S+)$',  # list of name servers
         'emails': EMAIL_REGEX  # list of email addresses
     }
 
