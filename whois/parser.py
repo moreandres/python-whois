@@ -632,6 +632,8 @@ class WhoisEntry(dict):
             return WhoisSite(domain, text)
         elif domain.endswith('.re'):
             return WhoisRe(domain, text)
+        elif domain.endswith('.mz'):
+            return WhoisMz(domain, text)
         elif domain.endswith('.ug'):
             return WhoisUg(domain, text)            
         else:
@@ -679,6 +681,24 @@ class WhoisCc(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
+
+class WhoisMz(WhoisEntry):
+    """Whois parser for .mz domains"""
+
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'expiration_date': r'Registry Expiry Date: *(.+)',
+        'updated_date': r'Updated Date: *(.+)',
+        'name_servers': r'Name Server:\s+(\S+)',  # list of name servers
+        'registrar': r'Registrar:\s+(.+)',    
+    }
+
+    def __init__(self, domain, text):
+        if 'Domain Status: No Object Found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
 
 class WhoisYt(WhoisEntry):
     """Whois parser for .yt domains"""
