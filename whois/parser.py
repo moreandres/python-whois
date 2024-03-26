@@ -1352,14 +1352,14 @@ class WhoisRo(WhoisEntry):
 
         'creation_date': r'Registered On: *(.+)',
         'expiration_date': r'Expires On: *(.+)',
-        'name_servers': r'^\s+Nameserver:\s+([a-z0-1-]+\.[a-z0-1-.]+)$',  # list of name servers
+        'name_servers': r'^  Nameserver: ([a-z0-9-]+\.[a-z0-9-.]+)$',  # list of name servers
         'status': r'Status: *(.+)',  # list of statuses
         'dnssec': r'DNSSEC: *(.+)',
         'emails': EMAIL_REGEX  # list of email addresses
     }
 
     def __init__(self, domain, text):
-        if text.strip() == 'NOT FOUND':
+        if 'No entries found for the selected source' in text.strip():
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
