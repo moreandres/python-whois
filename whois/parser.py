@@ -267,7 +267,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.ruhr'):
             return WhoisRuHr(domain, text)            
         elif domain.endswith('.rs'):
-            return domain, text)            
+            return WhoisRs(domain, text)            
         elif domain.endswith('.us'):
             return WhoisUs(domain, text)
         elif domain.endswith('.lv'):
