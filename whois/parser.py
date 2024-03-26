@@ -178,8 +178,11 @@ class WhoisEntry(dict):
                 for attribute, value in regex(self.text).items():
                     self[attribute] = value
         if 'name_servers' in self:
-            if self['name_servers'] is not None and isinstance(self['name_servers'], list):
-                self['name_servers'] = list(set(ns.lower() for ns in self['name_servers']))
+            if self['name_servers'] is not None:
+                if isinstance(self['name_servers'], str):
+                    self['name_servers'] = [ self['name_servers'].lower() ]
+                if isinstance(self['name_servers'], list):
+                    self['name_servers'] = list(set(ns.lower() for ns in self['name_servers']))
 
     def _preprocess(self, attr, value):
         value = value.strip()
