@@ -3327,9 +3327,9 @@ class WhoisHr(WhoisEntry):
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Registrar Registration Expiration Date: *(.+)',
-        'name_servers': r'Name Server: *(.+)',
+        'name_servers': r'^Name\sServer:\s+(\S+)\s*$',
         'registrant_name': r'Registrant Name:\s(.+)',
-        'registrant_address': r'Reigstrant Street:\s*(.+)',
+        'registrant_address': r'Registrant Street:\s*(.+)',
         'registrar': r'Registrar:\s+(\S+)',
         'emails': EMAIL_REGEX,
     }
