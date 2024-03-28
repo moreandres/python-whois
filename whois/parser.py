@@ -125,7 +125,7 @@ class WhoisEntry(dict):
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Expir\w+ Date: *(.+)',
-        'name_servers': r'^Name\s+Server:\s+(\S+)\s*.*$',  # list of name servers
+        'name_servers': r'^Name\s+Server:\s+(\S+)\.?\s*.*$',  # list of name servers
         'status': r'Status: *(.+)',  # list of statuses
         'emails': EMAIL_REGEX,  # list of email s
         'dnssec': r'dnssec: *([\S]+)',
