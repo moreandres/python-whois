@@ -392,7 +392,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.it'):
             return WhoisIt(domain, text)
         elif domain.endswith('.mx'):
-            return domain, text)
+            return WhoisMx(domain, text)
         elif domain.endswith('.mw'):
             return WhoisMw(domain, text)            
         elif domain.endswith('.ai'):
