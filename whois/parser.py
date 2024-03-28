@@ -363,8 +363,8 @@ class WhoisEntry(dict):
             return WhoisTm(domain, text)            
         elif domain.endswith('.ch'):
             return WhoisChLi(domain, text)
-        elif domain.endswith('.zu'):
-            return WhoisZu(domain, text)            
+        elif domain.endswith('.uz'):
+            return WhoisUz(domain, text)            
         elif domain.endswith('.sn'):
             return WhoisSn(domain, text)            
         elif domain.endswith('.pf'):
@@ -646,7 +646,7 @@ class WhoisEntry(dict):
             return WhoisEntry(domain, text)
 
 
-class WhoisZu(WhoisEntry):
+class WhoisUz(WhoisEntry):
     """Whois parser for .zu domains"""
 
     regex = {
