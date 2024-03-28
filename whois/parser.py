@@ -392,7 +392,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.it'):
             return WhoisIt(domain, text)
         elif domain.endswith('.mx'):
-            return WhoisMx(domain, text)
+            return domain, text)
         elif domain.endswith('.mw'):
             return WhoisMw(domain, text)            
         elif domain.endswith('.ai'):
@@ -2916,7 +2916,7 @@ class WhoisMx(WhoisEntry):
         'expiration_date': r'Expiration Date: *(.+)',
         'url': r'URL: *(.+)',
 
-        'name_servers': r'\s*DNS:\s+(\S+)\s*',
+        'name_servers': r'\s+DNS:\s+(\S+)\*?\s*\S*',
 
         'registrar': r'Registrar:\s*(.+)',
 
