@@ -837,7 +837,7 @@ class WhoisCl(WhoisEntry):
         'registrar_url': r'Registrar URL: *(.+)',
         'creation_date': r'Creation date: *(.+)',
         'expiration_date': r'Expiration date: *(.+)',
-        'name_servers': r'Name server: *(.+)',  # list of name servers
+        'name_servers': r'Name\s+server:\s+(\S+)\s*.*',  # list of name servers
     }
 
     def __init__(self, domain, text):
