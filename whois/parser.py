@@ -655,7 +655,7 @@ class WhoisUz(WhoisEntry):
         'creation_date': r'\s+Creation\s+Date:\s+(\S+)',
         'expiration_date': r'\s+Expiration\s+Date:\s+(\S+)',
         'updated_date': r'\s+Updated\s+Date:\s+(\S+)',        
-        'name_servers': r'\s+Nameserver:\s+(\S+)\.?\s*.*',  # list of name servers
+        'name_servers': r'\s+Name\s+Server:\s+(\S+)\.?\s*.*',  # list of name servers
     }
 
     def __init__(self, domain, text):
