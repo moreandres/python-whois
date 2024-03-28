@@ -2684,7 +2684,7 @@ class WhoisID(WhoisEntry):
         'registrant_fax': r'Registrant FAX:(.+)',
         'registrant_email': r'Registrant Email:(.+)',
 
-        'name_servers': r'Name Server:(.+)',  # list of name servers
+        'name_servers': r'Name\s+Server:\s+(\S+)\s*.*',  # list of name servers
     }
 
     def __init__(self, domain, text):
