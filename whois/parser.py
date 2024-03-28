@@ -2530,7 +2530,7 @@ class WhoisBiz(WhoisEntry):
         'tech_country': r'Tech Country: *(.+)',
         'tech_phone_number': r'Tech Phone: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_servers': r'Name Server: *(.+)',  # list of name servers
+        'name_servers': r'Name\s+Server:\s+(\S+)\s*.*',  # list of name servers
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Registrar Registration Expiration Date: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
