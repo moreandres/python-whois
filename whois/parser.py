@@ -363,6 +363,8 @@ class WhoisEntry(dict):
             return WhoisTm(domain, text)            
         elif domain.endswith('.ch'):
             return WhoisChLi(domain, text)
+        elif domain.endswith('.zu'):
+            return WhoisZu(domain, text)            
         elif domain.endswith('.sn'):
             return WhoisSn(domain, text)            
         elif domain.endswith('.pf'):
@@ -643,6 +645,24 @@ class WhoisEntry(dict):
             logger.warning(f'No specific TLD parser for domain {domain}. Using generic parser.')
             return WhoisEntry(domain, text)
 
+
+class WhoisZu(WhoisEntry):
+    """Whois parser for .zu domains"""
+
+    regex = {
+        'domain_name': r'\s+Domain\s+Name:\s+(\S+)',
+        'registrar': r'\s+Registrar:\s+(\S+)',
+        'creation_date': r'\s+Creation\s+Date:\s+(\S+)',
+        'expiration_date': r'\s+Expiration\s+Date:\s+(\S+)',
+        'updated_date': r'\s+Updated\s+Date:\s+(\S+)',        
+        'name_servers': r'\s+Nameserver:\s+(\S+)\.?\s*.*',  # list of name servers
+    }
+
+    def __init__(self, domain, text):
+        if 'No entries found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
 
 class WhoisUg(WhoisEntry):
     """Whois parser for .ug domains"""
