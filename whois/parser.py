@@ -2121,7 +2121,7 @@ class WhoisDe(WhoisEntry):
         'country_code': r'CountryCode: *(.+)',
         'phone': r'Phone: *(.+)',
         'fax': r'Fax: *(.+)',
-        'name_servers': r'Nserver:\s+(\S+)\s*.*',  # list of name servers
+        'name_servers': r'^Nserver:\s+(\S+)\s*\S*$',  # list of name servers
         'emails': EMAIL_REGEX  # list of email addresses
     }
 
