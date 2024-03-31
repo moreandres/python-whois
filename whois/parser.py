@@ -3257,7 +3257,7 @@ class WhoisLu(WhoisEntry):
     regex = {
         'domain_name': r'domainname: *(.+)',
         'creation_date': r'registered: *(.+)',
-        'name_servers': r'nserver: *(.+)',
+        'name_servers': r'nserver:\s+(\S+)\s*\S*',
         'status': r'domaintype: *(.+)',
         'registrar': r'registrar-name: *(.+)',
         'registrant_name': r'org-name: *(.+)',
