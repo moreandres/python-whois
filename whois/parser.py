@@ -1016,7 +1016,7 @@ class WhoisVe(WhoisEntry):
         'updated_date': r'changed: *(.+)',
         'creation_date': r'registered: *(.+)',
         'expiration_date': r'expire: *(.+)',
-        'name_servers': r'^nserver:\s+(\S+)\s*\S*\s*\S*$',
+        'name_servers': r'^nserver:\s+(\S+)(?:\s+\S+)?(?:\s+\S+)?$',
     }
 
     dayfirst = True
