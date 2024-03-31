@@ -450,7 +450,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.tr'):
             return WhoisTr(domain, text)
         elif domain.endswith('.ve'):
-            return domain, text)
+            return WhoisVe(domain, text)
         elif domain.endswith('.ua'):
             if domain.endswith('.pp.ua'):
                 return WhoisPpUa(domain, text)
