@@ -450,7 +450,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.tr'):
             return WhoisTr(domain, text)
         elif domain.endswith('.ve'):
-            return WhoisVe(domain, text)
+            return domain, text)
         elif domain.endswith('.ua'):
             if domain.endswith('.pp.ua'):
                 return WhoisPpUa(domain, text)
@@ -1016,7 +1016,7 @@ class WhoisVe(WhoisEntry):
         'updated_date': r'changed: *(.+)',
         'creation_date': r'registered: *(.+)',
         'expiration_date': r'expire: *(.+)',
-        'name_servers': r'^nserver:\s+(\S+)(?:\s+\S+)?(?:\s+\S+)?$',
+        'name_servers': r'nserver:\s+(\S+)\s*\S*',
     }
 
     dayfirst = True
