@@ -3128,6 +3128,7 @@ class WhoisAi(WhoisEntry):
         'billing_phone': r'BillingPhone\.*: *(.+)',
         'billing_email': r'BillingEmail\.*: *(.+)',
         'name_servers': r'Name Server\.*: *(.+)',
+        'iana_ia': r'^Registrar\s+IANA\s+ID:\s+(\d+)$',
     }
 
     def __init__(self, domain, text):
