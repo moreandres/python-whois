@@ -3736,7 +3736,7 @@ class WhoisTn(WhoisEntry):
         'domain_name': r'Domain name.........: *(.+)',
         'registrar': r'Registrar...........: *(.+)',
         'creation_date': r'Creation date.......: *(.+)',
-        'name_servers': r'Name................: *(.+)\.',  # list of name servers
+        'name_servers': r'^Name................:\s+(\S+)\.$',  # list of name servers
         'emails': EMAIL_REGEX,  # list of emails
     }
 
