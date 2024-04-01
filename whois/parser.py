@@ -3641,7 +3641,7 @@ class WhoisHn(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if text.strip() == 'No matching record.':
+        if text.strip() == 'No matching record.' or 'Domain Status: No Object Found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
