@@ -2183,7 +2183,7 @@ class WhoisInfo(WhoisEntry):
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Registry Expiry Date: *(.+)',
-        'name_servers': r'Name\s+Server:[ ]+(\S+)\s*\S*',  # list of name servers
+        'name_servers': r'^Name\s+Server:[ ]+(\S+)\s*\S*$',  # list of name servers
         'status': r'Status: *(.+)',  # list of statuses
         'emails': EMAIL_REGEX,  # list of email addresses
         'name': r'Registrant Name: *(.+)',
