@@ -3147,7 +3147,7 @@ class WhoisIl(WhoisEntry):
         'registrant_address': r'address *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'status': r'status: *(.+)',
-        'name_servers': r'nserver:\s+(\S+)\s*\S*',
+        'name_servers': r'^nserver:[ ]+(\S+)\s*\S*$',
         'emails': EMAIL_REGEX,
         'phone': r'phone: *(.+)',
         'registrar': r'registrar name: *(.+)',
