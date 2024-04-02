@@ -3867,7 +3867,7 @@ class WhoisCr(WhoisEntry):
         'updated_date': r'changed: *(.+)',
         'creation_date': r'registered: *(.+)',
         'expiration_date': r'expire: *(.+)',
-        'name_servers': r'nserver:\s+(\S+)\s*\S*',  # list of name servers
+        'name_servers': r'^nserver:[ \t]+(\S+)\s*\S*$',  # list of name servers
         'status': r'status: *(.+)',
         'contact': r'contact: *(.+)',
         'name': r'name: *(.+)',
