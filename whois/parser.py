@@ -5216,7 +5216,7 @@ class WhoisGe(WhoisEntry):
         'admin_email': r'Admin Email: *(.+)',
         'tech_name': r'Tech Name: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_servers': r'Name Server: *(.+)',
+        'name_servers': r'^\s+Name\s+Server:[ ]+(\S+)$',
     }
 
     def __init__(self, domain, text):
