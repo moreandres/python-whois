@@ -2916,7 +2916,7 @@ class WhoisMx(WhoisEntry):
         'expiration_date': r'Expiration Date: *(.+)',
         'url': r'URL: *(.+)',
 
-        'name_servers': r'\s+DNS:\s+(\S+)\*?\s*\S*',
+        'name_servers': r'^[ ]+DNS:[ ]+([a-zA-Z0-9.-]+)\*?\s*\S*$',
 
         'registrar': r'Registrar:\s*(.+)',
 
