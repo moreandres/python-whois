@@ -1294,7 +1294,7 @@ class WhoisCom(WhoisEntry):
         'tech_fax': r'Tech Fax: *(.+)',
         'tech_fax_ext': r'Tech Fax Ext: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_servers': r'^Name\s+Server:[ ]+(\S+)\s*\S*$',
+        'name_servers': r'^Name\s+Server:[ \t]+(\S+)\s*\S*\s*\S*$',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
         'iana_id': r'Registrar IANA ID: *(.+)',
