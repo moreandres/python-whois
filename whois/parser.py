@@ -3972,7 +3972,7 @@ class WhoisSi(WhoisEntry):
     regex = {
         'domain_name': r'domain: *(.+)',
         'registrar': r'registrar: *(.+)',
-        'name_servers': r'^nameserver:[ ]+(\S+)$',
+        'name_servers': r'^nameserver:[ \t]+(\S+)\s*\S*$',
         'registrant_name': r'registrant: *(.+)',
         'creation_date': r'created: *(.+)',
         'expiration_date': r'expire: *(.+)',
