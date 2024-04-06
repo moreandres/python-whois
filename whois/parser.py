@@ -5854,7 +5854,7 @@ class WhoisMd(WhoisEntry):
         'domain_status': r'Domain  state: *(.+)',
         'creation_date': r'Registered on: *(.+)',
         'expiration_date': r'Expires    on: *(.+)',
-        'name_servers': r'^Nameserver:[ ]+(\S+)$',
+        'name_servers': r'^Nameserver:[ \t]+(\S+)\s*$',
     }
 
     def __init__(self, domain, text):
