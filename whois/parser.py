@@ -125,7 +125,7 @@ class WhoisEntry(dict):
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Expir\w+ Date: *(.+)',
-        'name_servers': r'^Name Server:[ \t]([0-9a-zA-Z.-]+)(?:DNSSEC:Unsigned)?\s*\S*\s*\S*$',  # list of name servers
+        'name_servers': r'^Name Server:[ \t]([0-9a-zA-Z.-]+)\s*\S*\s*\S*$',  # list of name servers
         'status': r'Status: *(.+)',  # list of statuses
         'emails': EMAIL_REGEX,  # list of email s
         'dnssec': r'dnssec: *([\S]+)',
@@ -180,9 +180,9 @@ class WhoisEntry(dict):
         if 'name_servers' in self:
             if self['name_servers'] is not None:
                 if isinstance(self['name_servers'], str):
-                    self['name_servers'] = [ self['name_servers'].lower() ]
+                    self['name_servers'] = [ self['name_servers'].lower().rstrip('dnssec') ]
                 if isinstance(self['name_servers'], list):
-                    self['name_servers'] = list(set(ns.lower() for ns in self['name_servers']))
+                    self['name_servers'] = list(set(ns.lower().rstrip('dnssec') for ns in self['name_servers']))
 
     def _preprocess(self, attr, value):
         value = value.strip()
@@ -1294,7 +1294,7 @@ class WhoisCom(WhoisEntry):
         'tech_fax': r'Tech Fax: *(.+)',
         'tech_fax_ext': r'Tech Fax Ext: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_servers': r'^Name Server:[ \t]([0-9a-zA-Z.-]+)(?:DNSSEC:Unsigned)?\s*\S*\s*\S*$',
+        'name_servers': r'^Name Server:[ \t]([0-9a-zA-Z.-]+)\s*\S*\s*\S*$',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
         'iana_id': r'Registrar IANA ID: *(.+)',
