@@ -3326,7 +3326,7 @@ class WhoisOnline(WhoisEntry):
         'admin_email': r'Admin Email: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_servers': r'Name Server: *(.+)',
+        'name_servers': r'Name Server:[ \t](\S+)\s*\S*',
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
