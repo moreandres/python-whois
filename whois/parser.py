@@ -103,7 +103,7 @@ def cast_date(s, dayfirst=False, yearfirst=False):
             return dp.parse(
                 s,
                 tzinfos=tz_data,
-                dayfirst=dayfirst,
+                =,
                 yearfirst=yearfirst
             ).replace(tzinfo=None)
         except Exception:
@@ -4416,6 +4416,7 @@ class WhoisSm(WhoisEntry):
         'domain_name': r'Domain Name: *(.+)',
         'creation_date': r'Registration date: *(.+)',
     }
+    dayfirst = True
 
     def __init__(self, domain, text):
         if 'No entries found' in text:
