@@ -290,7 +290,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.mo'):
             return WhoisMo(domain, text)            
         elif domain.endswith('.lt'):
-            return WhoisLt(sdomain, text)
+            return WhoisLt(domain, text)
         elif domain.endswith('.fi'):
             return WhoisFi(domain, text)
         elif domain.endswith('.hr'):
