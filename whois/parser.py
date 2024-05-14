@@ -4950,7 +4950,7 @@ class WhoisCi(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'Not found:' in text:
+        if 'Not found:' in text or 'Domain Status: No Object Found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
