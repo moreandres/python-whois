@@ -290,7 +290,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.mo'):
             return WhoisMo(domain, text)            
         elif domain.endswith('.lt'):
-            return WhoisLt(domain, text)
+            return domain, text)
         elif domain.endswith('.fi'):
             return WhoisFi(domain, text)
         elif domain.endswith('.hr'):
@@ -1533,7 +1533,7 @@ class WhoisLt(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if text.endswith('available'):
+        if 'Status:			available' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
