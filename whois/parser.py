@@ -3022,7 +3022,7 @@ class WhoisTr(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'not found.' in text:
+        if 'not found.' in text or 'No match found for' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
