@@ -341,6 +341,8 @@ class NICClient(object):
             return NICClient.LT_HOST
         elif tld == 'market':
             return NICClient.MARKET_HOST
+        elif tld == 'ky':
+            return 'whois.uniregistrar.com'
         elif tld == 'money':
             return NICClient.MONEY_HOST
         elif tld == 'to':
